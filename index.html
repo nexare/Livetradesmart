@@ -11,11 +11,26 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: radial-gradient(circle, #10384c, #051924); /* Fondo degradado */
+            background: radial-gradient(circle, #10384c, #051924);
+            animation: gradientAnimation 10s infinite alternate;
         }
+
+        @keyframes gradientAnimation {
+            0% {
+                background: radial-gradient(circle, #10384c, #051924);
+            }
+            50% {
+                background: radial-gradient(circle, #143b58, #072030);
+            }
+            100% {
+                background: radial-gradient(circle, #10384c, #051924);
+            }
+        }
+
         .logo {
             text-align: center;
         }
+
         .logo img {
             max-width: 100%;
             height: auto;
@@ -28,4 +43,3 @@
     </div>
 </body>
 </html>
-
