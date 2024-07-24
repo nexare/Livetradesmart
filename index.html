@@ -11,35 +11,81 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden; /* Para que no aparezcan barras de desplazamiento */
             background: radial-gradient(circle, #10384c, #051924);
-            animation: gradientAnimation 10s infinite alternate;
-        }
-
-        @keyframes gradientAnimation {
-            0% {
-                background: radial-gradient(circle, #10384c, #051924);
-            }
-            50% {
-                background: radial-gradient(circle, #143b58, #072030);
-            }
-            100% {
-                background: radial-gradient(circle, #10384c, #051924);
-            }
         }
 
         .logo {
             text-align: center;
+            z-index: 1;
         }
 
         .logo img {
             max-width: 100%;
             height: auto;
         }
+
+        .background-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bar {
+            position: absolute;
+            bottom: 0;
+            width: 4px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.5);
+            animation: moveBar 2s infinite ease-in-out;
+        }
+
+        @keyframes moveBar {
+            0% {
+                transform: translateY(0) scaleY(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-100px) scaleY(1.5);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(0) scaleY(1);
+                opacity: 1;
+            }
+        }
+
+        /* Animación de múltiples barras */
+        .bar:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .bar:nth-child(2) { left: 20%; animation-delay: 0.2s; }
+        .bar:nth-child(3) { left: 30%; animation-delay: 0.4s; }
+        .bar:nth-child(4) { left: 40%; animation-delay: 0.6s; }
+        .bar:nth-child(5) { left: 50%; animation-delay: 0.8s; }
+        .bar:nth-child(6) { left: 60%; animation-delay: 1s; }
+        .bar:nth-child(7) { left: 70%; animation-delay: 1.2s; }
+        .bar:nth-child(8) { left: 80%; animation-delay: 1.4s; }
+        .bar:nth-child(9) { left: 90%; animation-delay: 1.6s; }
     </style>
 </head>
 <body>
     <div class="logo">
         <img src="logo.png" alt="LiveTradeSmart Logo">
     </div>
+    <div class="background-animation">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
 </body>
 </html>
+
